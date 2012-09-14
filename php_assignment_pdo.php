@@ -124,6 +124,31 @@ class MyClass
 		}
 
 	}
+	
+	/*function myTransaction($dbh)
+	{
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	  
+	$dbh->beginTransaction();
+
+	   
+	    $table = "CREATE TABLE books ( book_id MEDIUMINT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	    book_type VARCHAR(25) NOT NULL,
+	    book_name VARCHAR(25) NOT NULL 
+	    )";
+	    $dbh->exec($table);
+	    $dbh->exec("INSERT INTO books (book_type, book_name) VALUES ('comic', 'champak')");
+	    $dbh->exec("INSERT INTO books (book_type, book_name) VALUES ('story', 'raja_rani')");
+	    $dbh->exec("INSERT INTO books (book_type, book_name) VALUES ('story', 'pushpak')");
+	    $dbh->commit();
+	    echo 'Data entered successfully<br />';
+	}
+	catch(PDOException $e)
+	    {
+	    $dbh->rollback();
+	    echo $sql . '<br />' . $e->getMessage();
+	    }
+	}*/
 }
 	/*ini_set('error_reporting', E_ALL);
 	ini_set('display_errors',1);*/
@@ -160,8 +185,12 @@ class MyClass
 	echo "<br/><br/>Prepared statement<br/>";
 	$obj->preparedStatement($dbh);
 	
+	/*echo "<br/>Transaction<br/>";
+	$obj->myTransaction($dbh);*/
+	
 	/*echo "<br/>Get last inserted id:<br/>";
 	$obj->getLastInsertId($dbh);*/
+	
 	
 	$obj->closeConnection();
 
