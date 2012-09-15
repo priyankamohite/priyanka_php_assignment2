@@ -69,12 +69,13 @@ class MyClass
 
 	}
 
-	/*function getLastInsertId($dbh)
+	function getLastInsertId($dbh)
 	{	
-		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$dbh->exec("insert into user(user_id,user_name)values('4', 'nishant')");
-	        echo $dbh->lastInsertId();
-	}*/
+	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    $dbh->exec("insert into books (book_type,book_name)values('novel','swmai')");
+	    echo $dbh->lastInsertId();
+	    $dbh = null;
+	}
 
 	function errorHandle($dbh)
 	{
@@ -188,8 +189,8 @@ class MyClass
 	/*echo "<br/>Transaction<br/>";
 	$obj->myTransaction($dbh);*/
 	
-	/*echo "<br/>Get last inserted id:<br/>";
-	$obj->getLastInsertId($dbh);*/
+	echo "<br/>Get last inserted id:<br/>";
+	$obj->getLastInsertId($dbh);
 	
 	
 	$obj->closeConnection();
